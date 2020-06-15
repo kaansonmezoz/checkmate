@@ -1,4 +1,5 @@
 from abc     import ABCMeta, abstractmethod
+
 from .bishop import Bishop
 from .king   import King
 from .knight import Knight
@@ -6,6 +7,7 @@ from .pawn   import Pawn
 from .queen  import Queen
 from .rook   import Rook
 
+from ..chess_board import ChessBoard
 
 class ChessPiece(metaclass=ABCMeta):
     def __init__(self, name, color, x, y):
@@ -25,6 +27,11 @@ class ChessPiece(metaclass=ABCMeta):
     @abstractmethod
     def move(self):
         ##TODO: should be implemented
+        pass
+    
+    @abstractmethod
+    def possible_moves(self, chess_board: ChessBoard):
+        ##TODO: should return all possible moves from its current position
         pass
 
     @staticmethod

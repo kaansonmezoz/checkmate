@@ -1,4 +1,5 @@
-from .chess_piece import ChessPiece
+from .chess_piece  import ChessPiece
+from ..chess_board import ChessBoard
 
 class Queen(ChessPiece):
     def __init__(self, name, color, x, y):
@@ -10,4 +11,8 @@ class Queen(ChessPiece):
 
     def move(self):
         ##TODO: should be implemented
+        return
+
+    def possible_moves(self, chess_board: ChessBoard):
+        ##TODO: should return all possible moves from its current position
         return
