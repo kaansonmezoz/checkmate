@@ -15,7 +15,7 @@ class Player(metaclass=ABCMeta):
         ## it should selects destination for the chosen chess piece
         pass
 
-    def next_chess_move(self):
+    def next_chess_move(self) -> ChessMove:
         chess_piece = self.select_chess_piece()
         x, y = self.select_destination()
         return ChessMove(chess_piece, x, y)
