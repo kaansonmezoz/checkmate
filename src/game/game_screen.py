@@ -13,6 +13,12 @@ class GameScreen:
         self.__chess_board = chess_board
         self.__game_images = GameImages(pygame)        
         self.__init_screen()
+        ## blit sadece cizdiriyor ekrani.
+        self.__screen.blit(self.__game_images.board(),(0,0))
+        # butun degisiklikleri vs renderlamak icin bunu yapmak lazim yani update'i cagirtmak lazim
+        pygame.display.update() 
+
+
     
     def __init_screen(self):        
         size = self.__game_images.board_size()
