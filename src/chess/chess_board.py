@@ -1,4 +1,7 @@
-from .pieces.chess_piece import ChessPiece
+from pathlib import Path
+print('Running' if __name__ == '__main__' else 'Importing', Path(__file__).resolve())
+
+from src.chess.pieces.chess_piece import ChessPiece
 
 class ChessBoard:
     def __init__(self):

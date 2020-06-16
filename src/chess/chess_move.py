@@ -1,3 +1,6 @@
+from pathlib import Path
+print('Running' if __name__ == '__main__' else 'Importing', Path(__file__).resolve())
+
 class ChessMove:
     def __init__(self, chess_piece, destination_x, destination_y):
         self.__chess_piece = chess_piece

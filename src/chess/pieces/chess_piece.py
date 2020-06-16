@@ -1,13 +1,16 @@
+from pathlib import Path
+print('Running' if __name__ == '__main__' else 'Importing', Path(__file__).resolve())
+
 from abc     import ABCMeta, abstractmethod
 
-from .bishop import Bishop
-from .king   import King
-from .knight import Knight
-from .pawn   import Pawn
-from .queen  import Queen
-from .rook   import Rook
 
-from ..chess_board import ChessBoard
+
+
+
+
+
+
+#from src.chess.chess_board import ChessBoard
 
 class ChessPiece(metaclass=ABCMeta):
     def __init__(self, name, color, x, y):
@@ -30,30 +33,36 @@ class ChessPiece(metaclass=ABCMeta):
         pass
     
     @abstractmethod
-    def possible_moves(self, chess_board: ChessBoard):
+    def possible_moves(self, chess_board):
         ##TODO: should return all possible moves from its current position
         pass
 
     @staticmethod
     def bishop(name, color, x, y):
+        from src.chess.pieces.bishop import Bishop
         return Bishop(name, color, x, y)
 
     @staticmethod
     def king(name, color, x, y):
+        from src.chess.pieces.king   import King
         return King(name, color, x, y)
 
     @staticmethod
     def knight(name, color, x, y):
+        from src.chess.pieces.knight import Knight
         return Knight(name, color, x, y)
     
     @staticmethod
     def pawn(name, color, x, y):
+        from src.chess.pieces.pawn   import Pawn
         return Pawn(name, color, x, y)
 
     @staticmethod
     def queen(name, color, x, y):
+        from src.chess.pieces.queen  import Queen
         return Queen(name, color, x, y)
 
     @staticmethod
     def rook(name, color, x, y):
+        from src.chess.pieces.rook   import Rook
         return Rook(name, color, x, y)
