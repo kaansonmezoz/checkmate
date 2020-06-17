@@ -9,6 +9,13 @@ class Game:
         self.__chess_board = chess_board
         self.__game_screen.update(self.__chess_board.white_pieces(), self.__chess_board.black_pieces())
 
+    def start(self):        
+        while True:
+            chess_piece = self.__select_chess_piece()
+            self.__display_possible_moves(chess_piece)
+            destination = self.__select_destination(chess_piece)
+            self.__move_chess_piece(chess_piece, destination)
+
     def __select_chess_piece(self):
         # valid bir tas secene kadar devam etmeli
         self.__game_screen.click()

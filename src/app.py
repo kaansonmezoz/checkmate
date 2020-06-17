@@ -6,4 +6,4 @@ from src.chess.chess_board import ChessBoard
 
 class App:
     def start(self):
-        Game(ChessBoard())
+        Game(ChessBoard()).start()
