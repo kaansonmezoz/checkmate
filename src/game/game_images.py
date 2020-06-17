@@ -12,6 +12,7 @@ class GameImages:
         self.__pygame = pygame
         self.__board = pygame.image.load(os.path.join(os.path.dirname(__file__), '../../assets/board.png')).convert()
         self.__square_width, self.__square_height = self.__get_board_square_size()
+        self.__pieces = {'white': {}, 'black': {}}
         self.__load_chess_board_images(pygame)
         self.__load_menu_images(pygame)
 
@@ -21,7 +22,8 @@ class GameImages:
 
     def __load_chess_board_images(self, pygame):                
         w, h = self.__square_width, self.__square_height
-        self.__pieces = self.__load_image('../../assets/Chess_Pieces_Sprite.png', w, h)
+        self.__pieces = self.__load_image('../../assets/Chess_Pieces_Sprite.png', w, h) ## bunun kesilip icerisinden satranc taslarini almak lazim
+        ## satranc taslarini bolunmus hali var onu kullanmak gerekli
         self.__green_circle = self.__load_image('../../assets/Chess_Pieces_Sprite.png', w, h)
         self.__red_circle = self.__load_image('../../assets/red_circle_big.png', w, h)        
         self.__green_box = self.__load_image('../../assets/green_box.png', w, h)        
@@ -52,3 +54,10 @@ class GameImages:
 
     def board_size(self):
         return self.__board.get_rect().size
+    
+    def piece_image(self, color, name):
+        # color = white | black
+        # name = bishop | king | knight | pawn | queen | rock
+        # bunları da piece'in üzerinden aliriz hem color, type, number seklinde olursa eger fieldlari ve get_id dedigimizde 
+        # bunları concat ederek getirirsek sıkıntı olmaz
+        return self.__pieces[color][name]    
