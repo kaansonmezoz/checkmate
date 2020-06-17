@@ -2,7 +2,7 @@ from pathlib import Path
 print('Running' if __name__ == '__main__' else 'Importing', Path(__file__).resolve())
 
 from abc import ABCMeta, abstractmethod
-from ..chess_move import ChessMove
+from src.chess.chess_move import ChessMove
 
 class Player(metaclass=ABCMeta):
     def __init__(self, color):
