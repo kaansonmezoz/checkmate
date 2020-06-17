@@ -6,8 +6,11 @@ from src.chess.chess_move import ChessMove
 
 class Player(metaclass=ABCMeta):
     def __init__(self, color):
-        self.color = color
+        self.__color = color
     
+    def color(self):
+        return self.__color
+
     @abstractmethod
     def select_chess_piece(self):        
         ## it should return x,y coordinate of chess piece or just piece
