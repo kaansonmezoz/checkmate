@@ -65,9 +65,9 @@ class GameScreen:
     
     def __put_pieces(self, pieces, square_width, square_height):
         for piece in pieces:
-            location = (piece.x() * square_width, piece.y() * square_height)
+            location = (piece.y() * square_height, piece.x() * square_width)
             image = self.__game_images.piece_image(piece.color(), piece.get_type())
-            self.__screen_blit(image, location)
+            self.__screen.blit(image, location)            
 
     def click(self):
         ## burada iste bir yere tikladi mi onun kontrolunu yapmak lazim tabii 
