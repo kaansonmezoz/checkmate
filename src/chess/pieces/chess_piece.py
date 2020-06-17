@@ -1,22 +1,27 @@
 from pathlib import Path
 print('Running' if __name__ == '__main__' else 'Importing', Path(__file__).resolve())
 
-from abc     import ABCMeta, abstractmethod
+from abc import ABCMeta, abstractmethod
 
-
-#from src.chess.chess_board import ChessBoard
 
 class ChessPiece(metaclass=ABCMeta):
-    def __init__(self, name, color, x, y):
-        self._name = name
-        self._color = color
-        self._x = x
-        self._y = y
+    def __init__(self, piece_type, color, number, x, y):
+        self.__piece_type = piece_type
+        self.__color = color
+        self.__number = number
+        self.__x = x
+        self.__y = y
         # type tanımlanmali
         self.__type = None 
 
     def get_id(self):
-        return self._color + "_" + self._name
+        return self._color + "_" + self._piece_type + "_" + self.__number
+
+    def color(self):
+        return self.__color
+
+    def get_type(self):
+        return self.__piece_type
 
     def x(self):
         return self.__x
@@ -43,31 +48,31 @@ class ChessPiece(metaclass=ABCMeta):
         pass
 
     @staticmethod
-    def bishop(name, color, x, y):
+    def bishop(piece_type, color, number, x, y):
         from src.chess.pieces.bishop import Bishop
-        return Bishop(name, color, x, y)
+        return Bishop(piece_type, color, number, x, y)
 
     @staticmethod
-    def king(name, color, x, y):
+    def king(piece_type, color, number, x, y):
         from src.chess.pieces.king   import King
-        return King(name, color, x, y)
+        return King(piece_type, color, number, x, y)
 
     @staticmethod
-    def knight(name, color, x, y):
+    def knight(piece_type, color, number, x, y):
         from src.chess.pieces.knight import Knight
-        return Knight(name, color, x, y)
+        return Knight(piece_type, color, number, x, y)
     
     @staticmethod
-    def pawn(name, color, x, y):
+    def pawn(piece_type, color, number, x, y):
         from src.chess.pieces.pawn   import Pawn
-        return Pawn(name, color, x, y)
+        return Pawn(piece_type, color, number, x, y)
 
     @staticmethod
-    def queen(name, color, x, y):
+    def queen(piece_type, color, number, x, y):
         from src.chess.pieces.queen  import Queen
-        return Queen(name, color, x, y)
+        return Queen(piece_type, color, number, x, y)
 
     @staticmethod
-    def rook(name, color, x, y):
+    def rook(piece_type, color, number, x, y):
         from src.chess.pieces.rook   import Rook
-        return Rook(name, color, x, y)
+        return Rook(piece_type, color, number, x, y)

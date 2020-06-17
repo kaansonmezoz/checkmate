@@ -5,8 +5,8 @@ from src.chess.pieces.chess_piece  import ChessPiece
 from src.chess.chess_board import ChessBoard
 
 class Pawn(ChessPiece):
-    def __init__(self, name, color, x, y):
-        super().__init__(name, color, x, y)
+    def __init__(self, piece_type, color, number, x, y):
+        super().__init__(piece_type, color, number, x, y)
     
     def can_move(self):
         ##TODO: should be implemented
