@@ -2,12 +2,18 @@ from pathlib import Path
 print('Running' if __name__ == '__main__' else 'Importing', Path(__file__).resolve())
 
 from src.game.game_screen import GameScreen
+from src.player.player import Player
 
 class Game:
-    def __init__(self, chess_board):
+    def __init__(self, chess_board, player_1: Player, player_2: Player):
+        self.__validate_player_arg(player_1, 'player_1')
+        self.__validate_player_arg(player_2, 'player_2')
+        
         self.__game_screen = GameScreen()
         self.__chess_board = chess_board
         self.__game_screen.update(self.__chess_board.white_pieces(), self.__chess_board.black_pieces())
+        self.__player_1 = player_1
+        self.__player_2 = player_2
 
     def start(self):        
         while True:
@@ -15,6 +21,10 @@ class Game:
             self.__display_possible_moves(chess_piece)
             destination = self.__select_destination(chess_piece)
             self.__move_chess_piece(chess_piece, destination)
+
+    def __validate_player_arg(self, obj, arg_name):
+        if not isinstance(obj, Player):
+            raise TypeError(arg_name + ' should be an instance of Player !')
 
     def __select_chess_piece(self):
         # valid bir tas secene kadar devam etmeli
