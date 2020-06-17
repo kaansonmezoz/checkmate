@@ -29,10 +29,6 @@ class GameScreen:
         ## blit sadece cizdiriyor ekrani.
         self.__screen.blit(self.__game_images.board(),(0,0))
 
-        ## Oyun tahtasindaki karenin boyutları
-        self.__square_height = 0 # boarddaki bir karenin yuksekligi
-        self.__square_width = 0  # boarddaki bir karenin genisligi
-
         # butun degisiklikleri vs renderlamak icin bunu yapmak lazim yani update'i cagirtmak lazim        
         pygame.display.update() 
     
@@ -41,6 +37,11 @@ class GameScreen:
         self.__pygame.display.set_caption('Checkmate')
         screen = self.__pygame.display.set_mode(size)
         screen.blit(self.__game_images.board(), (0, 0))
+        
+        board_size = self.__game_images.board_size()
+        self.__square_width = board_size[0]//8
+        self.__square_height = board_size[1]//8
+        
         self.__screen = screen
 
     def update(self, white_pieces, black_pieces):
