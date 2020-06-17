@@ -63,7 +63,6 @@ class GameImages:
         self.__yellow_box = self.__load_image('../../assets/yellow_box.png', width, height)
 
     def __load_menu_images(self, pygame, width, height):
-        w, h = self.__square_width, self.__square_height      
         self.__friend = self.__load_image('../../assets/withfriend.png', width, height)
         self.__ai = self.__load_image('../../assets/withAI.png', width, height)
         self.__play_white = self.__load_image('../../assets/playWhite.png', width, height)    

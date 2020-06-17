@@ -26,9 +26,6 @@ class GameScreen:
         self.__screen = pygame.display.set_mode((600,600))
         self.__game_images = GameImages(pygame)        
         self.__init_screen()
-        ## blit sadece cizdiriyor ekrani.
-        self.__screen.blit(self.__game_images.board(),(0,0))
-
         # butun degisiklikleri vs renderlamak icin bunu yapmak lazim yani update'i cagirtmak lazim        
         pygame.display.update() 
     

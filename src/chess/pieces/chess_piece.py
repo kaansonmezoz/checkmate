@@ -11,11 +11,9 @@ class ChessPiece(metaclass=ABCMeta):
         self.__number = number
         self.__x = x
         self.__y = y
-        # type tanımlanmali
-        self.__type = None 
 
     def get_id(self):
-        return self._color + "_" + self._piece_type + "_" + self.__number
+        return self.__color + "_" + self.__piece_type + "_" + self.__number
 
     def color(self):
         return self.__color
@@ -28,9 +26,6 @@ class ChessPiece(metaclass=ABCMeta):
 
     def y(self):
         return self.__y
-
-    def get_type(self):
-        return self.__type
 
     @abstractmethod
     def can_move(self):
