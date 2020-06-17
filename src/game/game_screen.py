@@ -54,8 +54,8 @@ class GameScreen:
         self.__clear_screen()
         self.__screen.blit(self.__game_images.board(), (0, 0))
 
-        self.__put_pieces(white_pieces, self.__square_width, self.__square_height)
-        self.__put_pieces(black_pieces, self.__square_width, self.__square_height)
+        self.__draw_chess_pieces(white_pieces, self.__square_width, self.__square_height)
+        self.__draw_chess_pieces(black_pieces, self.__square_width, self.__square_height)
 
         self.__pygame.display.update()
     
@@ -63,7 +63,7 @@ class GameScreen:
         black = (0, 0, 0)
         self.__screen.fill(black)
     
-    def __put_pieces(self, pieces, square_width, square_height):
+    def __draw_chess_pieces(self, pieces, square_width, square_height):                
         for piece in pieces:
             location = (piece.y() * square_height, piece.x() * square_width)
             image = self.__game_images.piece_image(piece.color(), piece.get_type())
