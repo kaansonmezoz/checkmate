@@ -18,7 +18,7 @@ class ChessBoard:
         self.__put_chess_pieces(white_pieces, 'white', 0, 1)
 
     def __put_black_chess_pieces(self, black_pieces):
-        self.__put_chess_pieces(black_pieces, 'black', 6, 7)
+        self.__put_chess_pieces(black_pieces, 'black', 7, 6)
 
     def __put_chess_pieces(self, pieces, color, x1, x2):
         self.__board[x1][0] = self.__create_chess_piece(pieces, ChessPiece.rook, 'rook', color,'1', x1, 0)
