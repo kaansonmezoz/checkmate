@@ -12,15 +12,24 @@ class Game:
         self.__game_screen = GameScreen()
         self.__chess_board = chess_board
         self.__game_screen.update(self.__chess_board.white_pieces(), self.__chess_board.black_pieces())
-        self.__player_1 = player_1
-        self.__player_2 = player_2
+        self.__player_order = [0, 0]
+        
+        if player_1.color() == 'white':
+            self.__player_order.append(player_1)
+            self.__player_order.append(player_2)
+        else:
+            self.__player_order.append(player_2)
+            self.__player_order.append(player_1)
 
     def start(self):        
-        while True:
+        while True: 
+            ## buradaki logicler aslinda oyunculara yuklenmeli ai'da surec boyle islemeyecek mesela chess_board ve GameScreen verilmesi gerekecek gibi duruyor
+            player = self.__player_order.pop(0)
             chess_piece = self.__select_chess_piece()
             self.__display_possible_moves(chess_piece)
             destination = self.__select_destination(chess_piece)
             self.__move_chess_piece(chess_piece, destination)
+            self.__player_order.append(player)
 
     def __validate_player_arg(self, obj, arg_name):
         if not isinstance(obj, Player):
