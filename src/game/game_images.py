@@ -13,32 +13,63 @@ class GameImages:
         self.__board = pygame.image.load(os.path.join(os.path.dirname(__file__), '../../assets/board.png')).convert()
         self.__square_width, self.__square_height = self.__get_board_square_size()
         self.__pieces = {'white': {}, 'black': {}}
-        self.__load_chess_board_images(pygame)
-        self.__load_menu_images(pygame)
+        self.__load_images(pygame)
 
     def __get_board_square_size(self):
         size = self.board_size()
         return size[0]/8, size[1]/8
 
-    def __load_chess_board_images(self, pygame):                
-        w, h = self.__square_width, self.__square_height
-        self.__pieces = self.__load_image('../../assets/Chess_Pieces_Sprite.png', w, h) ## bunun kesilip icerisinden satranc taslarini almak lazim
-        ## satranc taslarini bolunmus hali var onu kullanmak gerekli
-        self.__green_circle = self.__load_image('../../assets/Chess_Pieces_Sprite.png', w, h)
-        self.__red_circle = self.__load_image('../../assets/red_circle_big.png', w, h)        
-        self.__green_box = self.__load_image('../../assets/green_box.png', w, h)        
-        self.__yellow_circle = self.__load_image('../../assets/yellow_circle_big.png', w, h)    
-        self.__green_big_circle = self.__load_image('../../assets/green_circle_big.png', w, h)
-        self.__yellow_box = self.__load_image('../../assets/yellow_box.png', w, h)
+    def __load_images(self, pygame):
+        self.__load_chess_board_images(pygame, self.__square_width, self.__square_height)
+        self.__load_menu_images(pygame, self.__square_width, self.__square_height)
+        self.__load_chess_piece_images(pygame, self.__square_width, self.__square_height)
 
-    def __load_menu_images(self, pygame):
+    def __load_chess_piece_images(self, pygame, width, height):
+        bishop = self.__load_image('../../assets/white_bishop.png', width, height)
+        king = self.__load_image('../../assets/white_king.png', width, height)
+        knight = self.__load_image('../../assets/white_knight.png', width, height)
+        pawn = self.__load_image('..bishop/../assets/white_pawn.png', width, height)
+        queen = self.__load_image('../../assets/white_queen.png', width, height)
+        rook = self.__load_image('../../assets/white_rook.png', width, height)
+        
+        self.__pieces['white']['bishop'] = bishop
+        self.__pieces['white']['king'] = king
+        self.__pieces['white']['knight'] = knight
+        self.__pieces['white']['pawn'] = pawn
+        self.__pieces['white']['queen'] = queen
+        self.__pieces['white']['rook'] = rook
+
+        bishop = self.__load_image('../../assets/black_bishop.png', width, height)
+        king = self.__load_image('../../assets/black_king.png', width, height)
+        knight = self.__load_image('../../assets/black_knight.png', width, height)
+        pawn = self.__load_image('../../assets/black_pawn.png', width, height)
+        queen = self.__load_image('../../assets/black_queen.png', width, height)
+        rook = self.__load_image('../../assets/black_rook.png', width, height)
+
+        self.__pieces['black']['bishop'] = bishop
+        self.__pieces['black']['king'] = king
+        self.__pieces['black']['knight'] = knight
+        self.__pieces['black']['pawn'] = pawn
+        self.__pieces['black']['queen'] = queen
+        self.__pieces['black']['rook'] = rook
+        
+
+    def __load_chess_move_images(self, pygame, width, height):                        
+        self.__green_circle = self.__load_image('../../assets/Chess_Pieces_Sprite.png', width, height)
+        self.__red_circle = self.__load_image('../../assets/red_circle_big.png', width, height)        
+        self.__green_box = self.__load_image('../../assets/green_box.png', width, height)        
+        self.__yellow_circle = self.__load_image('../../assets/yellow_circle_big.png', width, height)    
+        self.__green_big_circle = self.__load_image('../../assets/green_circle_big.png', width, height)
+        self.__yellow_box = self.__load_image('../../assets/yellow_box.png', width, height)
+
+    def __load_menu_images(self, pygame, width, height):
         w, h = self.__square_width, self.__square_height      
-        self.__friend = self.__load_image('../../assets/withfriend.png', w, h)
-        self.__ai = self.__load_image('../../assets/withAI.png', w, h)
-        self.__play_white = self.__load_image('../../assets/playWhite.png', w, h)    
-        self.__play_black = self.__load_image('../../assets/playBlack.png', w, h)
-        self.__flip_enabled = self.__load_image('../../assets/flipEnabled.png', w, h)
-        self.__flip_disabled = self.__load_image('../../assets/flipDisabled.png', w, h)
+        self.__friend = self.__load_image('../../assets/withfriend.png', width, height)
+        self.__ai = self.__load_image('../../assets/withAI.png', width, height)
+        self.__play_white = self.__load_image('../../assets/playWhite.png', width, height)    
+        self.__play_black = self.__load_image('../../assets/playBlack.png', width, height)
+        self.__flip_enabled = self.__load_image('../../assets/flipEnabled.png', width, height)
+        self.__flip_disabled = self.__load_image('../../assets/flipDisabled.png', width, height)
 
     def __load_image(self, path, width, height):
         base_path = os.path.join(os.path.dirname(__file__))
