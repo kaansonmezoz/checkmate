@@ -20,7 +20,7 @@ class GameImages:
         return size[0]/8, size[1]/8
 
     def __load_images(self, pygame):
-        self.__load_chess_board_images(pygame, self.__square_width, self.__square_height)
+        self.__load_chess_move_images(pygame, self.__square_width, self.__square_height)
         self.__load_menu_images(pygame, self.__square_width, self.__square_height)
         self.__load_chess_piece_images(pygame, self.__square_width, self.__square_height)
 
@@ -28,7 +28,7 @@ class GameImages:
         bishop = self.__load_image('../../assets/white_bishop.png', width, height)
         king = self.__load_image('../../assets/white_king.png', width, height)
         knight = self.__load_image('../../assets/white_knight.png', width, height)
-        pawn = self.__load_image('..bishop/../assets/white_pawn.png', width, height)
+        pawn = self.__load_image('../../assets/white_pawn.png', width, height)
         queen = self.__load_image('../../assets/white_queen.png', width, height)
         rook = self.__load_image('../../assets/white_rook.png', width, height)
         
