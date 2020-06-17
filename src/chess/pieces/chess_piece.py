@@ -4,12 +4,6 @@ print('Running' if __name__ == '__main__' else 'Importing', Path(__file__).resol
 from abc     import ABCMeta, abstractmethod
 
 
-
-
-
-
-
-
 #from src.chess.chess_board import ChessBoard
 
 class ChessPiece(metaclass=ABCMeta):
@@ -18,9 +12,20 @@ class ChessPiece(metaclass=ABCMeta):
         self._color = color
         self._x = x
         self._y = y
+        # type tanımlanmali
+        self.__type = None 
 
     def get_id(self):
         return self._color + "_" + self._name
+
+    def x(self):
+        return self.__x
+
+    def y(self):
+        return self.__y
+
+    def get_type(self):
+        return self.__type
 
     @abstractmethod
     def can_move(self):
