@@ -9,5 +9,22 @@ class Game:
         self.__chess_board = chess_board
         self.__game_screen.update(self.__chess_board.white_pieces(), self.__chess_board.black_pieces())
 
+    def __select_chess_piece(self):
+        # valid bir tas secene kadar devam etmeli
+        self.__game_screen.click()
+        return
+    
+    def __display_possible_moves(self, chess_piece):
+        return
+    
+    def __select_destination(self, chess_piece):
+        ## burada secme islemi valid bir pozisyon secilene kadar devam etmeli
+        self.__game_screen.click()
+        return
+    
+    def __move_chess_piece(self, chess_piece, destination):
+        return
+
+
 # burada oyun icin gerekli diger dependecyler her sey yaratilmali
 # suan her class kendi dependencysisini yaratiyor onu kaldırmak lazim

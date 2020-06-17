@@ -6,6 +6,8 @@ from src.game.game_images import GameImages
 import pygame
 from pygame.locals import *
 
+import sys
+
 class GameScreen:
     def __init__(self):
         # pygame.error: No video mode has been set hatası aldim.
@@ -42,12 +44,6 @@ class GameScreen:
         self.__screen = screen
 
     def update(self, white_pieces, black_pieces):
-        # bütün taslarin konumlari alinmali
-        # once board uzerinde bu taslar konulmalı
-        # sonrasında da bunları renderlamak gerekiyor.
-
-        # Daha iyi bir cozum lazim
-
         self.__clear_screen()
         self.__screen.blit(self.__game_images.board(), (0, 0))
 
@@ -70,7 +66,13 @@ class GameScreen:
         ## burada iste bir yere tikladi mi onun kontrolunu yapmak lazim tabii 
         ## eger ai oynamiyorsa oyle bir durum da var burada tabii
         ## tiklanilan yeri gidip convert etmek gerekiyor sanki ... asagidaki method ile 
-        return
+        for event in self.__pygame.event.get():
+            if event.type == self.__pygame.QUIT:
+                sys.exit(0)
+            
+            print(event)
+
+        return None
     
 
     def __convert_pixel_to_board_coordinates(self):
