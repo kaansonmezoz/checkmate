@@ -67,3 +67,13 @@ class GameScreen:
             location = (piece.x() * square_width, piece.y() * square_height)
             image = self.__game_images.piece_image(piece.color(), piece.get_type())
             self.__screen_blit(image, location)
+
+    def click(self):
+        ## burada iste bir yere tikladi mi onun kontrolunu yapmak lazim tabii 
+        ## eger ai oynamiyorsa oyle bir durum da var burada tabii
+        ## tiklanilan yeri gidip convert etmek gerekiyor sanki ... asagidaki method ile 
+        return
+    
+
+    def __convert_pixel_to_board_coordinates(self):
+        return
