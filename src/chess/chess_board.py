@@ -2,6 +2,7 @@ from pathlib import Path
 print('Running' if __name__ == '__main__' else 'Importing', Path(__file__).resolve())
 
 from src.chess.pieces.chess_piece import ChessPiece
+from src.chess.chess_move         import ChessMove
 
 class ChessBoard:
     def __init__(self):
@@ -54,9 +55,22 @@ class ChessBoard:
         x = destination['x']
         
         # TODO: Rest of the function should be implemented
+        # TODO: Tasin suanki yeri 0 yapilmali.
+        # TODO: Destinationda bir tas varsa o yenilmeli ve white_pieces ya da black_pieces'ten silinmeli
+        # TODO: Şah varsa ona göre bir tavir almak lazim.
+        # TODO: Oyuncular da eger sah yapildiysa onu bozmalari gerekiyor once ona gore bir hareket yapmaları yani tasi oynatmalari lazim
+        # TODO: Sahi bozacak hamle yapilmasina izin verilmeli mesela oyuncuların yani baska bir hamle yapamamalilar
+        # TODO: Bazi taslari oynayamazsin oynadigin taktirde rakibin sana şah yapiyordur cunku, kilitlenir o taş bununla ilgili de bir logic eklenmeli
+        # TODO: Oyuncularda belki de böyle bir state olması lazim sana sah yapildi mi ona gore kontroller yapilmali
+        # TODO: Happy pathleri implemente etmeye devam edelim, ama bu uc caseleri de eklemeye devam edelim.
+        # TODO: Ama bu bahsettigim kararlari verecek olan game board olmalı sanki ? yani bir tastansa bu durumun kontrolleri bu methodda olmalı ya da bir method olmalı chess_piece te ona bakıp o sekilde davranmamiz gerekiyor
+        # TODO: Oyunculara belki de bir state koymak gerekebilir iste suan sana sah yapildi mi gibisiden cunku hamlen de ona gore bir karar vermen gerekiyor
+        # TODO: Ai da buna gore karar verecek belki de puanlamasi vs degisecek o yuzden o sekilde bir hamle yapmak gerekiyor.
+        # TODO: tabii bir de sah yapildigi zaman oncesinde oyun bitti mi diye bir kontrol yapmak gerekiyor cunku oyun bittiyse hamle yapamamali gerci bunu while'daki kosul ile sagliyoruz sanirsam
                 
         return
 
     def game_not_finished(self):
-        ## should be implemented
+        ## TODO: should be implemented
+        ## TODO: Should control checkmate and draw
         return True
