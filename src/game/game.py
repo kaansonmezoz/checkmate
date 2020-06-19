@@ -12,7 +12,7 @@ class Game:
         self.__game_screen = GameScreen()
         self.__chess_board = chess_board
         self.__game_screen.update(self.__chess_board.white_pieces(), self.__chess_board.black_pieces())
-        self.__player_order = [0, 0]
+        self.__player_order = []
         
         if player_1.color() == 'white':
             self.__player_order.append(player_1)
