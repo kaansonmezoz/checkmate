@@ -5,8 +5,8 @@ from src.chess.pieces.chess_piece  import ChessPiece
 from src.chess.chess_board import ChessBoard
 
 class Rook(ChessPiece):
-    def __init__(self, piece_type, color, number, x, y):
-        super().__init__(piece_type, color, number, x, y)
+    def __init__(self, piece_type, color, number, y, x):
+        super().__init__(piece_type, color, number, y, x)
     
     def can_move(self):
         ##TODO: should be implemented
@@ -19,3 +19,4 @@ class Rook(ChessPiece):
     def possible_moves(self, chess_board: ChessBoard):
         ##TODO: should return all possible moves from its current position
         return
+x

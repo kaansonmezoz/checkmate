@@ -5,7 +5,7 @@ from abc import ABCMeta, abstractmethod
 
 
 class ChessPiece(metaclass=ABCMeta):
-    def __init__(self, piece_type, color, number, x, y):
+    def __init__(self, piece_type, color, number, y, x):
         self.__piece_type = piece_type
         self.__color = color
         self.__number = number
@@ -43,31 +43,31 @@ class ChessPiece(metaclass=ABCMeta):
         pass
 
     @staticmethod
-    def bishop(piece_type, color, number, x, y):
+    def bishop(piece_type, color, number, y, x):
         from src.chess.pieces.bishop import Bishop
-        return Bishop(piece_type, color, number, x, y)
+        return Bishop(piece_type, color, number, y, x)
 
     @staticmethod
-    def king(piece_type, color, number, x, y):
+    def king(piece_type, color, number, y, x):
         from src.chess.pieces.king   import King
-        return King(piece_type, color, number, x, y)
+        return King(piece_type, color, number, y, x)
 
     @staticmethod
-    def knight(piece_type, color, number, x, y):
+    def knight(piece_type, color, number, y, x):
         from src.chess.pieces.knight import Knight
-        return Knight(piece_type, color, number, x, y)
+        return Knight(piece_type, color, number, y, x)
     
     @staticmethod
-    def pawn(piece_type, color, number, x, y):
+    def pawn(piece_type, color, number, y, x):
         from src.chess.pieces.pawn   import Pawn
-        return Pawn(piece_type, color, number, x, y)
+        return Pawn(piece_type, color, number, y, x)
 
     @staticmethod
-    def queen(piece_type, color, number, x, y):
+    def queen(piece_type, color, number, y, x):
         from src.chess.pieces.queen  import Queen
-        return Queen(piece_type, color, number, x, y)
+        return Queen(piece_type, color, number, y, x)
 
     @staticmethod
-    def rook(piece_type, color, number, x, y):
+    def rook(piece_type, color, number, y, x):
         from src.chess.pieces.rook   import Rook
-        return Rook(piece_type, color, number, x, y)
+        return Rook(piece_type, color, number, y, x)

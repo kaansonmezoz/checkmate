@@ -58,7 +58,7 @@ class GameScreen:
     
     def __draw_chess_pieces(self, pieces, square_width, square_height):                
         for piece in pieces:
-            location = (piece.y() * square_height, piece.x() * square_width)
+            location = (piece.x() * square_width, piece.y() * square_height)
             image = self.__game_images.piece_image(piece.color(), piece.get_type())
             self.__screen.blit(image, location)            
 
