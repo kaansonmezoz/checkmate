@@ -63,16 +63,27 @@ class GameScreen:
             self.__screen.blit(image, location)            
 
     def click(self):
-        ## burada iste bir yere tikladi mi onun kontrolunu yapmak lazim tabii 
-        ## eger ai oynamiyorsa oyle bir durum da var burada tabii
-        ## tiklanilan yeri gidip convert etmek gerekiyor sanki ... asagidaki method ile 
-        for event in self.__pygame.event.get():
-            if event.type == self.__pygame.QUIT:
-                sys.exit(0)
-            
-            print(event)
+        is_clicked = False
 
-        return None
+        while not is_clicked:        
+            for event in self.__pygame.event.get():
+                print(event)
+
+                if event.type == self.__pygame.QUIT:
+                    sys.exit(0)
+                
+                if event.type == self.__pygame.MOUSEBUTTONUP:
+                    is_clicked = True
+                    print('Mouse clicked !')
+                    x,y = self.__pixel_to_board_coordinates(self.__pygame.mouse.get_pos())
+                    print("Width: " + str(x))
+                    print("Height: " + str(y))
+        return x, y
+    
+    def __pixel_to_board_coordinates(self, location):
+        x = location[0] // self.__square_width
+        y = location[1] // self.__square_height
+        return x,y
     
     def render_selected_chess_piece(self, chess_piece):
         print("Rendered")
@@ -81,6 +92,3 @@ class GameScreen:
         height = chess_piece.y() * self.__square_height
         self.__screen.blit(image, (width, height))
         self.__pygame.display.update()
-
-    def __convert_pixel_to_board_coordinates(self):
-        return
