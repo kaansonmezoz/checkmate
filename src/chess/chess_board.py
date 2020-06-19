@@ -43,3 +43,20 @@ class ChessBoard:
     
     def black_pieces(self):
         return self.__black_pieces
+    
+    def chess_piece(self, y, x):
+        return self.__board[y][x]
+
+    def move_chess_piece(self, chess_move: ChessMove):      
+        chess_piece = chess_move.chess_piece()
+        destination = chess_move.destination()
+        y = destination['y']
+        x = destination['x']
+        
+        # TODO: Rest of the function should be implemented
+                
+        return
+
+    def game_not_finished(self):
+        ## should be implemented
+        return True
