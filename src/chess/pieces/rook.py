@@ -19,4 +19,3 @@ class Rook(ChessPiece):
     def possible_moves(self, chess_board: ChessBoard):
         ##TODO: should return all possible moves from its current position
         return
-x
