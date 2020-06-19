@@ -22,34 +22,26 @@ class Game:
             self.__player_order.append(player_1)
 
     def start(self):        
-        while True: 
+        game_not_finished = True
+        
+        while game_not_finished: 
             ## buradaki logicler aslinda oyunculara yuklenmeli ai'da surec boyle islemeyecek mesela chess_board ve GameScreen verilmesi gerekecek gibi duruyor
             player = self.__player_order.pop(0)
-            chess_piece = self.__select_chess_piece()
-            self.__display_possible_moves(chess_piece)
-            destination = self.__select_destination(chess_piece)
-            self.__move_chess_piece(chess_piece, destination)
+            chess_move = player.next_chess_move(self.__chess_board, self.__game_screen)
+            print('Chess piece: ' + chess_move.chess_piece().get_id())
+            #self.__move_chess_piece(chess_move)
+            game_not_finished = self.__chess_board.game_not_finished()
             self.__player_order.append(player)
 
     def __validate_player_arg(self, obj, arg_name):
         if not isinstance(obj, Player):
             raise TypeError(arg_name + ' should be an instance of Player !')
 
-    def __select_chess_piece(self):
-        # valid bir tas secene kadar devam etmeli
-        self.__game_screen.click()
-        return
-    
-    def __display_possible_moves(self, chess_piece):
-        return
-    
-    def __select_destination(self, chess_piece):
-        ## burada secme islemi valid bir pozisyon secilene kadar devam etmeli
-        self.__game_screen.click()
-        return
-    
-    def __move_chess_piece(self, chess_piece, destination):
-        return
+    def __move_chess_piece(self, chess_move):
+        self.__chess_board.move_chess_piece(chess_move)
+        white_pieces = self.__chess_board.white_pieces()
+        black_pieces = self.__chess_board.black_pieces()
+        self.__game_screen.update(white_pieces, black_pieces)
 
 
 # burada oyun icin gerekli diger dependecyler her sey yaratilmali
