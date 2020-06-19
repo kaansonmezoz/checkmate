@@ -60,6 +60,7 @@ class GameImages:
         self.__green_box = self.__load_image('../../assets/green_box.png', width, height)        
         self.__yellow_circle = self.__load_image('../../assets/yellow_circle_big.png', width, height)    
         self.__green_big_circle = self.__load_image('../../assets/green_circle_big.png', width, height)
+        self.__chess_piece_selection = self.__load_image('../../assets/green_circle_neg.png', width, height)
         self.__yellow_box = self.__load_image('../../assets/yellow_box.png', width, height)
 
     def __load_menu_images(self, pygame, width, height):
@@ -91,3 +92,6 @@ class GameImages:
         # bunları da piece'in üzerinden aliriz hem color, type, number seklinde olursa eger fieldlari ve get_id dedigimizde 
         # bunları concat ederek getirirsek sıkıntı olmaz
         return self.__pieces[color][name]    
+
+    def chess_piece_selection(self):
+        return self.__chess_piece_selection

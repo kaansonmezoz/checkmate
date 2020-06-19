@@ -74,6 +74,13 @@ class GameScreen:
 
         return None
     
+    def render_selected_chess_piece(self, chess_piece):
+        print("Rendered")
+        image = self.__game_images.chess_piece_selection()
+        width = chess_piece.x() * self.__square_width
+        height = chess_piece.y() * self.__square_height
+        self.__screen.blit(image, (width, height))
+        self.__pygame.display.update()
 
     def __convert_pixel_to_board_coordinates(self):
         return
