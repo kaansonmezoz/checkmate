@@ -11,17 +11,10 @@ class Player(metaclass=ABCMeta):
     def color(self):
         return self.__color
 
-    @abstractmethod
-    def select_chess_piece(self):        
-        ## it should return x,y coordinate of chess piece or just piece
-        pass
-    
-    @abstractmethod
-    def select_destination(self):
-        ## it should selects destination for the chosen chess piece
-        pass
+    def is_white(self):
+        return self.__color == 'white'
 
+    @abstractmethod
     def next_chess_move(self) -> ChessMove:
-        chess_piece = self.select_chess_piece()
-        x, y = self.select_destination()
-        return ChessMove(chess_piece, x, y)
+        pass
+        
