@@ -12,8 +12,8 @@ class ChessBoard:
         self.__fill_board(self.__white_pieces, self.__black_pieces)
 
     def __fill_board(self, white_pieces, black_pieces):
-        self.__put_black_chess_pieces(white_pieces)
-        self.__put_white_chess_pieces(black_pieces)
+        self.__put_white_chess_pieces(white_pieces)
+        self.__put_black_chess_pieces(black_pieces)
     
     def __put_white_chess_pieces(self, white_pieces):
         self.__put_chess_pieces(white_pieces, 'white', 0, 1)
